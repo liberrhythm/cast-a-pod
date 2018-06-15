@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "cast-a-pod",
+  "description": "Capital One Software Engineering Summit application for August 2018 - GPodder API Podcast Engine",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Sabrina Peng <shpeng@smu.edu>",
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap": "^4.1.1",
+    "bootstrap": "^3.3.7",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
@@ -27,7 +27,6 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "devDependencies": {
-    "bootstrap-scss": "^4.1.1",
     "gatsby-plugin-sass": "^1.0.26",
     "prettier": "^1.12.0"
   },

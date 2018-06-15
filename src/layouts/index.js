@@ -5,6 +5,9 @@ import Helmet from 'react-helmet'
 import Header from '../components/header'
 import './index.css'
 
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const Layout = ({ children, data }) => (
   <div className="bg">

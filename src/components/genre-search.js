@@ -48,7 +48,9 @@ function TopTagsList(props) {
         <Button bsStyle="default" id={item.tag} key={index}>{item.tag}</Button>
     );
     return (
-        <ul>{tagsList}</ul>
+        <div id="tagslist" style={{ display: 'none' }}>
+            <ul>{tagsList}</ul>
+        </div>
     );
 }
 
@@ -58,7 +60,9 @@ function SearchList(props) {
         <SearchResult key={index} result={item} />
     );
     return (
-        <ul>{resultsList}</ul>
+        <div id="resultslist" style={{height: '30vh', overflowY: 'auto'}}>
+            <ul>{resultsList}</ul>
+        </div>
     );
 }
 
@@ -92,6 +96,18 @@ class GenreSearch extends Component {
             });
     }
 
+    toggleGenres() {
+        var tagslist = document.getElementById("tagslist");
+        var resultslist = document.getElementById("resultslist");
+        if (tagslist.style.display === "none") {
+            tagslist.style.display = "block";
+            resultslist.style.height = "30vh";
+        } else {
+            tagslist.style.display = "none";
+            resultslist.style.height = "60vh";
+        }
+    }
+
     render() {
         return (
             <div style={{ display: 'flex-column', justifyContent: 'center' }}>
@@ -100,7 +116,8 @@ class GenreSearch extends Component {
                         <ControlLabel style={{ marginRight: '5px', marginTop: '5px', marginBottom: '5px' }}>genre:</ControlLabel>
                         <FormControl style={{ marginTop: '5px', marginBottom: '5px' }}type="text" onChange={this.handleChange} />
                     </FormGroup>{' '}
-                    <Button style={{ marginTop: '5px', marginBottom: '5px' }} type="submit">search</Button>
+                    <Button bsStyle="primary" style={{ marginTop: '5px', marginBottom: '5px', marginRight: '5px' }} type="submit">search</Button>
+                    <Button bsStyle="primary" style={{ marginTop: '5px', marginBottom: '5px' }} type="submit" id="showgenresbutton" onClick={this.toggleGenres}>show/hide genres</Button>
                 </Form>  
                 <TopTags></TopTags>
                 <SearchList results={this.state.results}></SearchList>

@@ -5,7 +5,7 @@ import Login from '../components/login'
 const IndexPage = () => (
   <div style={{
     position: 'absolute',
-    top: '50%',
+    top: '45%',
     left: '50%',
     display: 'flex column',
     alignItems: 'center',
@@ -13,10 +13,12 @@ const IndexPage = () => (
     transform: 'translate(-50%, -50%)'
   }}>
     <div style={{
+      marginBottom: '30px'
     }}>
       <h3 style={{
         textAlign: 'center',
-        color: '#464646'
+        color: '#464646',
+        fontWeight: 'bold'
       }}>cast-a-pod makes your podcast experience one to listen to - forever.</h3>
       <h4 style={{
         textAlign: 'center',

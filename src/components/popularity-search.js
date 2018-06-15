@@ -12,7 +12,9 @@ function SearchList(props) {
         <SearchResult key={index} result={item} />
     );
     return (
-        <ul>{resultsList}</ul>
+        <div style={{height: '70vh', overflowY: 'auto'}}>
+            <ul>{resultsList}</ul>
+        </div>
     );
 }
 

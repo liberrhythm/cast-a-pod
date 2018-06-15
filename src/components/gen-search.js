@@ -13,7 +13,9 @@ function SearchList(props) {
         <SearchResult key={index} result={item} />
     );
     return (
-        <ul>{resultsList}</ul>
+        <div style={{height: '60vh', overflowY: 'auto'}}>
+            <ul>{resultsList}</ul>
+        </div>
     );
 }
 
@@ -59,7 +61,7 @@ class GenSearch extends Component {
                         <ControlLabel style={{ marginRight: '5px', marginTop: '5px', marginBottom: '5px' }}>term:</ControlLabel>
                         <FormControl style={{ marginTop: '5px', marginBottom: '5px' }}type="text" onChange={this.handleChange} />
                     </FormGroup>{' '}
-                    <Button style={{ marginTop: '5px', marginBottom: '5px' }} type="submit">search</Button>
+                    <Button bsStyle="primary" style={{ marginTop: '5px', marginBottom: '5px' }} type="submit">search</Button>
                 </Form>
                 <SearchList results={this.state.results}></SearchList>
             </div>
