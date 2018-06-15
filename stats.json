@@ -1,0 +1,60 @@
+{
+  "assetsByChunkName": {
+    "component---src-pages-index-js": [
+      "component---src-pages-index-js-e94170f45f6cc4fa30ca.js",
+      "component---src-pages-index-js-e94170f45f6cc4fa30ca.js.map"
+    ],
+    "path---": [
+      "path----d60fd41ca08e43e9bb6a.js",
+      "path----d60fd41ca08e43e9bb6a.js.map"
+    ],
+    "path---profile": [
+      "path---profile-a0e39f21c11f6a62c5ab.js",
+      "path---profile-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-layouts-index-js": [
+      "component---src-layouts-index-js-59f9547310444b90df32.js",
+      "component---src-layouts-index-js-59f9547310444b90df32.js.map"
+    ],
+    "path---index": [
+      "path---index-a0e39f21c11f6a62c5ab.js",
+      "path---index-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-search-js": [
+      "component---src-pages-search-js-bc110599bbdcf04d2e63.js",
+      "component---src-pages-search-js-bc110599bbdcf04d2e63.js.map"
+    ],
+    "component---src-pages-404-js": [
+      "component---src-pages-404-js-4503918ea3a16cfcdb75.js",
+      "component---src-pages-404-js-4503918ea3a16cfcdb75.js.map"
+    ],
+    "commons": [
+      "commons-ed62c052db3d737a3d16.js",
+      "build-js-styles.css",
+      "commons-ed62c052db3d737a3d16.js.map",
+      "build-js-styles.css.map"
+    ],
+    "path---404-html": [
+      "path---404-html-a0e39f21c11f6a62c5ab.js",
+      "path---404-html-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "app": [
+      "app-cc114cbc082af1f9c353.js",
+      "build-js-styles.css",
+      "app-cc114cbc082af1f9c353.js.map",
+      "build-js-styles.css.map"
+    ],
+    "path---404": [
+      "path---404-a0e39f21c11f6a62c5ab.js",
+      "path---404-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---search": [
+      "path---search-a0e39f21c11f6a62c5ab.js",
+      "path---search-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-profile-js": [
+      "component---src-pages-profile-js-dea350b7d056d63dd205.js",
+      "component---src-pages-profile-js-dea350b7d056d63dd205.js.map"
+    ]
+  }
+}
