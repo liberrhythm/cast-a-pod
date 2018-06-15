@@ -1,0 +1,1 @@
+var Alert = require('react-bootstrap').Alert;

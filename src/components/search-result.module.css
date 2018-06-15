@@ -1,0 +1,32 @@
+.card {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    background-color: white;
+    opacity: 0.85;
+}
+
+.cardBody {
+    padding: 10px;
+}
+
+.cardTitle {
+    color: #464646;
+    margin: 10px;
+}
+
+.cardSubtitle {
+    color: #464646;
+    margin: 10px;
+};
+
+.cardText {
+    color: #464646;
+    margin: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.cardLink {
+    color: blue;
+    margin: 10px;
+}
