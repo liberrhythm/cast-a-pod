@@ -1,19 +1,8 @@
 import React, { Component } from "react";
-import SearchResult from "./search-result"
 import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap'
 
 const axios = require('axios');
-const baseUrl = "http://www.gpodder.net";
-
-function SearchList(props) {
-    const results = props.results;
-    const resultsList = results.map((item, index) =>
-        <SearchResult key={index} result={item} />
-    );
-    return (
-        <ul>{resultsList}</ul>
-    );
-}
+const baseUrl = "https://www.gpodder.net";
 
 class Login extends Component {
     constructor(props) {
@@ -37,7 +26,7 @@ class Login extends Component {
 
     login() {
         console.log(baseUrl + "/api/2/auth/" + this.state.username + "/login.json");
-        axios.post(baseUrl + "/api/2/auth/" + this.state.username + "/login.json", {
+        axios.post(baseUrl + "/api/2/auth/" + this.state.username + "/login.json", {}, {
             auth: {
                 username: this.state.username,
                 password: this.state.password
