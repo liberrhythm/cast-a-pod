@@ -7,7 +7,7 @@ const baseUrl = "https://www.gpodder.net";
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = { username: '', password: '', authorization: '' };
+        this.state = { username: '', password: '' };
         this.login = this.login.bind(this);
 
         this.handleChange = this.handleChange.bind(this);
@@ -24,20 +24,44 @@ class Login extends Component {
         event.preventDefault();
     }
 
+    printResponse() {
+        console.log("beb");
+    }
+
     login() {
-        console.log(baseUrl + "/api/2/auth/" + this.state.username + "/login.json");
-        axios.post(baseUrl + "/api/2/auth/" + this.state.username + "/login.json", {}, {
+        let proxy = {
+            host: "https://cors-anywhere.herokuapp.com",
+            auth: {
+              username: 'liberrhythm',
+              password: 'kiwi0123'
+            }
+        }
+
+        axios.post(baseUrl + "/api/2/auth/" + this.state.username + "/login.json", {
+            /*
+            withCredentials: true,
             auth: {
                 username: this.state.username,
                 password: this.state.password
-            }
+            },
+            headers: {
+                //"Accept" : application/json,
+                //'Content-Type': 'application/x-www-form-urlencoded',
+                "Access-Control-Allow-Headers" : "Content-Type, Authorization",
+                
+                "Access-Control-Allow-Origin": 'http://localhost:8000',
+                "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT"
+            },
+            */
+            proxy: proxy
         })
             .then((response) => {
                 console.log(response);
+                console.log("NO ERRORS LOL");
             })
             .catch((error) => {
                 console.log(error);
-            });
+            }); 
     }
 
     render() {

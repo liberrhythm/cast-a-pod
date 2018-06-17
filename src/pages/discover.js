@@ -1,31 +1,29 @@
 import React from 'react'
-import GenSearch from '../components/gen-search'
 import { Tab, Row, Col, Nav, NavItem } from 'react-bootstrap'
-import GenreSearch from '../components/genre-search';
 import PopularitySearch from '../components/popularity-search';
+import GrowthSearch from '../components/growth-search'
 
-
-const SearchPage = () => (
+const DiscoverPage = () => (
   <div className="container" style={{width: '100%', textAlign: 'center'}}>
-    <h3>query for podcasts</h3>
+    <h3>discover podcasts</h3>
     <Tab.Container id="search-type" defaultActiveKey="first">
       <div>
         <Row className="clearfix" key="type">
           <Col sm={12}>
             <Nav bsStyle="pills" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <NavItem eventKey="term">by term</NavItem>
-              <NavItem eventKey="genre">by genre</NavItem>
+              <NavItem eventKey="popularity">by popularity</NavItem>
+              <NavItem eventKey="growth">by growth</NavItem>
             </Nav>
           </Col>
         </Row>
         <Row className="clearfix" key="content">
           <Col sm={12}>
             <Tab.Content animation>
-              <Tab.Pane eventKey="term">
-                <GenSearch></GenSearch>
+              <Tab.Pane eventKey="popularity">
+                <PopularitySearch></PopularitySearch>
               </Tab.Pane>
-              <Tab.Pane eventKey="genre">
-                <GenreSearch></GenreSearch>
+              <Tab.Pane eventKey="growth">
+                <GrowthSearch></GrowthSearch>
               </Tab.Pane>
             </Tab.Content>
           </Col>
@@ -35,4 +33,4 @@ const SearchPage = () => (
   </div>
 )
 
-export default SearchPage
+export default DiscoverPage

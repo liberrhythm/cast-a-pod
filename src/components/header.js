@@ -1,32 +1,40 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import styles from './header.module.css'
 
 const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      marginBottom: '1.45rem',
-      opacity: 0.9
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0.75rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: '10px' }}>
+  <div className={styles.container}>
+    <div className={styles.title}>
+      <h1>
         <Link
           to="/"
-          style={{
-            color: '#464646',
-            textDecoration: 'none',
-            fontWeight: 'bold'
-          }}
+          className={styles.titlelink}
         >
           {siteTitle}
         </Link>
       </h1>
+    </div>
+    <div className={styles.navbar}>
+      <div className={styles.navitem}>
+        <h4>
+          <Link
+            to="/search"
+            className={styles.link}
+          >
+            search podcasts
+        </Link>
+        </h4>
+      </div>
+      <div className={styles.navitem}>
+        <h4>
+          <Link
+            to="/discover"
+            className={styles.link}
+          >
+            discover podcasts
+        </Link>
+        </h4>
+      </div>
     </div>
   </div>
 )

@@ -16,14 +16,12 @@ class TopTags extends Component {
     }
 
     handleClick(tag) {
-        console.log(tag);
         this.props.chosenTag(tag);
     }
 
     getTopTags() {
         axios.get(baseUrl + "/api/2/tags/50.json")
             .then((response) => {
-                console.log(response.data);
                 this.setState({ results: response.data });
             })
             .catch((error) => {
@@ -42,7 +40,6 @@ class TopTags extends Component {
 
 function TopTagsList(props) {
     const tags = props.results;
-    console.log(tags);
 
     const tagsList = tags.map((item, index) =>
         <Button bsStyle="default" id={item.tag} key={index}>{item.tag}</Button>
@@ -88,7 +85,6 @@ class GenreSearch extends Component {
     search(tag) {
         axios.get(baseUrl + "/api/2/tag/" + tag + "/20.json")
             .then((response) => {
-                console.log(response.data);
                 this.setState({ results: response.data });
             })
             .catch((error) => {
@@ -117,7 +113,7 @@ class GenreSearch extends Component {
                         <FormControl style={{ marginTop: '5px', marginBottom: '5px' }}type="text" onChange={this.handleChange} />
                     </FormGroup>{' '}
                     <Button bsStyle="primary" style={{ marginTop: '5px', marginBottom: '5px', marginRight: '5px' }} type="submit">search</Button>
-                    <Button bsStyle="primary" style={{ marginTop: '5px', marginBottom: '5px' }} type="submit" id="showgenresbutton" onClick={this.toggleGenres}>show/hide genres</Button>
+                    <Button bsStyle="primary" style={{ marginTop: '5px', marginBottom: '5px' }} id="showgenresbutton" onClick={this.toggleGenres}>show/hide genres</Button>
                 </Form>  
                 <TopTags></TopTags>
                 <SearchList results={this.state.results}></SearchList>

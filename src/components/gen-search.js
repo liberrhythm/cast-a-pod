@@ -45,7 +45,6 @@ class GenSearch extends Component {
             }
         })
             .then((response) => {
-                console.log(response.data);
                 this.setState({ results: response.data });
             })
             .catch((error) => {

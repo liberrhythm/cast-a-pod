@@ -3,10 +3,32 @@
     margin: 10px;
     background-color: white;
     opacity: 0.85;
+    padding: 10px;
 }
 
 .cardBody {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cardInfo {
     padding: 10px;
+}
+
+.cardImage {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    max-width: 300px;
+    margin: 20px;
+    margin-top: 30px;
+}
+
+img {
+    vertical-align: middle;
+    max-height: 200px;
+    max-width: 200px;
 }
 
 .cardTitle {
@@ -27,6 +49,16 @@
 }
 
 .cardLink {
-    color: blue;
+    color: #367BB5;
     margin: 10px;
+}
+
+@media (max-width: 700px) {
+    .cardBody {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .cardImage {
+        margin-bottom: 0px;
+    }
 }

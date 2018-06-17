@@ -16,7 +16,7 @@ function SearchList(props) {
     );
 }
 
-class PopularitySearch extends Component {
+class GrowthSearch extends Component {
     constructor(props) {
         super(props);
         this.state = { results: [] };
@@ -26,9 +26,20 @@ class PopularitySearch extends Component {
     }
 
     search() {
-        axios.get(baseUrl + "/toplist/50.json")
+        axios.get(baseUrl + "/toplist/100.json")
             .then((response) => {
+                let arr = response.data;
+                console.log(arr);
                 this.setState({ results: response.data });
+                for (var i = 0; i < arr.length; i++) {
+                    let data = arr[i];
+                    if (data.subscribers - data.subscribers_last_week > 0) {
+                        console.log(data.title);
+                    }
+                    else {
+                        console.log("psyccchhh");
+                    }
+                }
             })
             .catch((error) => {
                 console.log(error);
@@ -45,4 +56,4 @@ class PopularitySearch extends Component {
     }
 }
 
-export default PopularitySearch;
+export default GrowthSearch;
