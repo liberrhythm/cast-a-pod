@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap'
+import { Form, FormGroup, FormControl, Button } from 'react-bootstrap'
 
 const axios = require('axios');
 const baseUrl = "https://www.gpodder.net";
@@ -24,19 +24,7 @@ class Login extends Component {
         event.preventDefault();
     }
 
-    printResponse() {
-        console.log("beb");
-    }
-
     login() {
-        let proxy = {
-            host: "https://cors-anywhere.herokuapp.com",
-            auth: {
-              username: 'liberrhythm',
-              password: 'kiwi0123'
-            }
-        }
-
         axios.post(baseUrl + "/api/2/auth/" + this.state.username + "/login.json", {
             /*
             withCredentials: true,
@@ -53,15 +41,17 @@ class Login extends Component {
                 "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT"
             },
             */
-            proxy: proxy
+            auth: {
+                username: this.state.username,
+                password: this.state.password
+            }
         })
             .then((response) => {
                 console.log(response);
-                console.log("NO ERRORS LOL");
             })
             .catch((error) => {
                 console.log(error);
-            }); 
+            });
     }
 
     render() {
