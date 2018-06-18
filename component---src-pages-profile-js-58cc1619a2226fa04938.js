@@ -1,2 +1,0 @@
-webpackJsonp([0xf68a30c0b3a2],{239:function(e,t,l){"use strict";function n(e){return e&&e.__esModule?e:{default:e}}t.__esModule=!0;var u=l(1),a=n(u),r=l(71),s=(n(r),function(){return a.default.createElement("div",{className:"container",style:{width:"100%",textAlign:"center"}},a.default.createElement("h3",null,"user profile"),a.default.createElement("h4",null,"episodes to listen to next:"))});t.default=s,e.exports=t.default}});
-//# sourceMappingURL=component---src-pages-profile-js-58cc1619a2226fa04938.js.map
