@@ -22,6 +22,8 @@ class SearchResult extends Component {
         this.modifyDescription();
     }
 
+    // create shortened description for podcast card
+    // full description is placed in modal on "show more data"
     modifyDescription() {
         if (this.state.description.length > 250) {
             this.setState({
@@ -38,6 +40,7 @@ class SearchResult extends Component {
         this.setState({ show: true });
     }
 
+    // unsuccessful attempt at getting episode data from the API to show in modal
     getEpisodeData() {
         axios.get(baseUrl + "/api/2/data/episode.json", {
             params: {

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import { Form, FormGroup, FormControl, Button } from 'react-bootstrap'
 
 const axios = require('axios');
@@ -24,6 +24,7 @@ class Login extends Component {
         event.preventDefault();
     }
 
+    // login function does not pass OPTIONS and throws CORS errors
     login() {
         axios.post(baseUrl + "/api/2/auth/" + this.state.username + "/login.json", {
             /*

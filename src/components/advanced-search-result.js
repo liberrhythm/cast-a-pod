@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import styles from './advanced-search-result.module.css'
 import { Button, Modal } from 'react-bootstrap'
 

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import SearchResult from "./search-result"
 import { Form, FormGroup, FormControl, ControlLabel, Button, Tab, Row, Col, Nav, NavItem } from 'react-bootstrap'
 
@@ -36,6 +36,7 @@ class GenSearch extends Component {
         event.preventDefault();
     }
 
+    // general gpodder search with term parameter
     search(term) {
         axios.get(baseUrl + "/search.json", {
             params: {

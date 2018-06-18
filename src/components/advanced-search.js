@@ -57,8 +57,10 @@ class DescSearch extends Component {
     parseDescriptions(data) {
         let allWords = new Map();
         let allProperNouns = new Map();
-        for (let i = 0; i < data.length; i++) {
 
+        // parse description text for each podcast
+        // keep duplicates and proper nouns as important words
+        for (let i = 0; i < data.length; i++) {
             let desc = data[i].description;
             var extraction_result = ke.extract(desc, {
                 language: "english",
@@ -92,16 +94,18 @@ class DescSearch extends Component {
             }
         }
 
+        // require frequency of >= 5 five before displaying
         let duplicates = new Map();
         allWords.forEach(function (value, key) {
-            if (value.length > 4) {
+            if (value.length >= 5) {
                 duplicates.set(key, value);
             }
         });
 
+        // require frequency of >= three before displaying
         let properNouns = new Map();
         allProperNouns.forEach(function (value, key) {
-            if (value.length > 4) {
+            if (value.length >= 3) {
                 properNouns.set(key, value);
             }
         });

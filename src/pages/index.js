@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import Login from '../components/login'
 
+// backbone of the login page
+// user authentication was not successful due to CORS issues
+// would have added an additional profile.js page
+
 const IndexPage = () => (
   <div style={{
     position: 'absolute',

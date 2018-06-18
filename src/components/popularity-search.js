@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import SearchResult from "./search-result"
 
 const axios = require('axios');
@@ -21,10 +21,10 @@ class PopularitySearch extends Component {
         super(props);
         this.state = { results: [] };
         this.search = this.search.bind(this);
-
         this.search();
     }
 
+    // get top 50 podcasts based on # of subscribers
     search() {
         axios.get(baseUrl + "/toplist/50.json")
             .then((response) => {

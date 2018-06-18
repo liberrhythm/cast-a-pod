@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import SearchResult from "./search-result"
 
 const axios = require('axios');
@@ -19,12 +19,14 @@ function SearchList(props) {
 class GrowthSearch extends Component {
     constructor(props) {
         super(props);
-        this.state = { results: [] };
+        this.state = { results: [], sortedResults: [] };
         this.search = this.search.bind(this);
 
         this.search();
     }
 
+    // get top 100 podcasts
+    // sort by change in subscribers (current - last week)
     search() {
         axios.get(baseUrl + "/toplist/100.json")
             .then((response) => {

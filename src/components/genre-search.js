@@ -82,6 +82,7 @@ class GenreSearch extends Component {
         event.preventDefault();
     }
 
+    // get the top 20 tags for the user to choose from
     search(tag) {
         axios.get(baseUrl + "/api/2/tag/" + tag + "/20.json")
             .then((response) => {
@@ -92,6 +93,7 @@ class GenreSearch extends Component {
             });
     }
 
+    // allow showing or hiding of retrieved tags
     toggleGenres() {
         var tagslist = document.getElementById("tagslist");
         var resultslist = document.getElementById("resultslist");
