@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tab, Row, Col, Nav, NavItem } from 'react-bootstrap'
-import PopularitySearch from '../components/popularity-search';
+import PopularitySearch from '../components/popularity-search'
 import GrowthSearch from '../components/growth-search'
 
 const DiscoverPage = () => (

@@ -4,10 +4,7 @@ import { Button, Modal } from 'react-bootstrap'
 
 function SearchList(props) {
     const results = props.results;
-    console.log(results);
 
-    //let resultsList = [];
-    
     let resultsList = results.map((item, index) =>
         <div className={styles.podcast}>
             <h4>{item.title}</h4>

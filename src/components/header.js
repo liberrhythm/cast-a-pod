@@ -41,7 +41,7 @@ const Header = ({ siteTitle }) => (
             to="/advanced"
             className={styles.link}
           >
-            dive into podcasts
+            analyze podcasts
         </Link>
         </h4>
       </div>

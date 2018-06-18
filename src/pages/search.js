@@ -1,7 +1,7 @@
 import React from 'react'
 import GenSearch from '../components/gen-search'
 import { Tab, Row, Col, Nav, NavItem } from 'react-bootstrap'
-import GenreSearch from '../components/genre-search';
+import GenreSearch from '../components/genre-search'
 
 const SearchPage = () => (
   <div className="container" style={{width: '100%', textAlign: 'center'}}>
