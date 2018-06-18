@@ -22,7 +22,7 @@ const AdvancedSearchPage = () => (
               <Tab.Pane eventKey="desc">
                 <DescSearch></DescSearch>
               </Tab.Pane>
-              <Tab.Pane user="desc">
+              <Tab.Pane eventKey="user">
                 <UserSort></UserSort>
               </Tab.Pane>
             </Tab.Content>
