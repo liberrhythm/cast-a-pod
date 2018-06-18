@@ -11,10 +11,12 @@
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
     "gh-pages": "^1.2.0",
+    "keyword-extractor": "0.0.15",
     "react": "^16.4.0",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.0",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "stopword": "^0.1.10"
   },
   "keywords": [
     "gatsby"

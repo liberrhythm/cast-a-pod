@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import Link from 'gatsby-link'
 import SearchResult from "./search-result"
 import { Form, FormGroup, FormControl, ControlLabel, Button, Tab, Row, Col, Nav, NavItem } from 'react-bootstrap'
 
 const axios = require('axios');
 const baseUrl = "https://www.gpodder.net";
-
 
 function SearchList(props) {
     const results = props.results;

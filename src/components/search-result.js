@@ -42,8 +42,7 @@ class SearchResult extends Component {
         axios.get(baseUrl + "/api/2/data/episode.json", {
             params: {
                 podcast: "http://leo.am/podcasts/twit",
-                episode: "http://www.podtrac.com/pts/redirect.mp3/aolradio.podcast.aol.com/twit/twit0245.mp3",
-
+                episode: "http://www.podtrac.com/pts/redirect.mp3/aolradio.podcast.aol.com/twit/twit0245.mp3"
             }
         })
             .then((response) => {
@@ -67,7 +66,6 @@ class SearchResult extends Component {
                         <p className={styles.cardText}>{this.state.description}</p>
                         <a href={this.props.result.url} className={styles.cardLink}>link to podcast website</a>
                         <Button bsStyle="default" onClick={this.handleShow}>show more data</Button>
-                        <Button bsStyle="default" onClick={this.getEpisodeData}>get episode data</Button>
                     </div>
 
                     <Modal show={this.state.show} onHide={this.handleClose}>
@@ -77,7 +75,6 @@ class SearchResult extends Component {
                         <Modal.Body>
                             <h4>full description:</h4>
                             <p>{this.props.result.description}</p>
-
                         </Modal.Body>
                     </Modal>
                 </div>

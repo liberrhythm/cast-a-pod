@@ -1,0 +1,17 @@
+.card {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    background-color: white;
+    opacity: 0.85;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.podcast {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid thin;
+}

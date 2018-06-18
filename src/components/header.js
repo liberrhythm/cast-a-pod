@@ -35,6 +35,16 @@ const Header = ({ siteTitle }) => (
         </Link>
         </h4>
       </div>
+      <div className={styles.navitem}>
+        <h4>
+          <Link
+            to="/advanced"
+            className={styles.link}
+          >
+            dive into podcasts
+        </Link>
+        </h4>
+      </div>
     </div>
   </div>
 )

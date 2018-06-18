@@ -2,12 +2,10 @@ import React from 'react'
 import GenSearch from '../components/gen-search'
 import { Tab, Row, Col, Nav, NavItem } from 'react-bootstrap'
 import GenreSearch from '../components/genre-search';
-import PopularitySearch from '../components/popularity-search';
-
 
 const SearchPage = () => (
   <div className="container" style={{width: '100%', textAlign: 'center'}}>
-    <h3>query for podcasts</h3>
+    <h3>query for podcasts by data</h3>
     <Tab.Container id="search-type" defaultActiveKey="first">
       <div>
         <Row className="clearfix" key="type">
