@@ -61,4 +61,7 @@ img {
     .cardImage {
         margin-bottom: 0px;
     }
+    .cardLink {
+        margin-bottom: 30px;
+    }
 }

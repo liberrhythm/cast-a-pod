@@ -14,7 +14,8 @@ class SearchResult extends Component {
 
         this.state = {
             show: false,
-            description: this.props.result.description
+            description: this.props.result.description,
+            subChanges: this.props.result.subscribers - this.props.result.subscribers_last_week
         };
     }
 
@@ -71,13 +72,21 @@ class SearchResult extends Component {
                         <Button bsStyle="default" onClick={this.handleShow}>show more data</Button>
                     </div>
 
-                    <Modal show={this.state.show} onHide={this.handleClose}>
+                    <Modal style={{margin: '0 auto'}} show={this.state.show} onHide={this.handleClose}>
                         <Modal.Header closeButton>
                             <Modal.Title>{this.props.result.title}</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <h4>full description:</h4>
+                            <h4>Full Description:</h4>
                             <p>{this.props.result.description}</p>
+                            <h4>Podcast Website:</h4>
+                            <p>{this.props.result.website}</p>
+                            <h4>Feed URL:</h4>
+                            <p>{this.props.result.url}</p>
+                            <h4>gPodder Link:</h4>
+                            <p>{this.props.result.mygpo_link}</p>
+                            <h4>Change in Subscribers:</h4>
+                            <p>{this.state.subChanges}</p>
                         </Modal.Body>
                     </Modal>
                 </div>

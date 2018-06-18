@@ -19,8 +19,9 @@ function SearchList(props) {
 class GrowthSearch extends Component {
     constructor(props) {
         super(props);
-        this.state = { results: [], sortedResults: [] };
+        this.state = { results: [] };
         this.search = this.search.bind(this);
+        this.compare = this.compare.bind(this);
 
         this.search();
     }
@@ -31,21 +32,24 @@ class GrowthSearch extends Component {
         axios.get(baseUrl + "/toplist/100.json")
             .then((response) => {
                 let arr = response.data;
-                console.log(arr);
-                this.setState({ results: response.data });
-                for (var i = 0; i < arr.length; i++) {
-                    let data = arr[i];
-                    if (data.subscribers - data.subscribers_last_week > 0) {
-                        console.log(data.title);
-                    }
-                    else {
-                        console.log("psyccchhh");
-                    }
-                }
+                arr.sort(this.compare);
+                this.setState({results: arr});
             })
             .catch((error) => {
                 console.log(error);
             });
+    }
+
+    // sorting function for comparing one-week subscriber changes
+    compare(a, b) {
+        let a_diff = a.subscribers - a.subscribers_last_week;
+        let b_diff = b.subscribers - b.subscribers_last_week;
+
+        if (a_diff > b._diff)
+          return 1;
+        if (a_diff < b_diff)
+          return -1;
+        return 0;
     }
 
     render() {
