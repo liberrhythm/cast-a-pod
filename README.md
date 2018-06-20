@@ -1,7 +1,12 @@
 # cast-a-pod
 Capital One Software Engineering Summit application for August 2018 - GPodder API Podcast Engine
 
-For best performance, please enable cross-origin resource sharing on your browser of choice.
+cast-a-pod is a multifaceted podcast search engine for people on the move!
+
+For best performance, please start your browser with --disable-web-security or enable cross-origin resource sharing on your browser of choice in order to prevent CORS issues.
+* Windows: "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security --user-data-dir="c:/someFolderName"  
+* Mac: open -n -a /Applications/Google\ Chrome.app --args --user-data-dir="/tmp/someFolderName" --disable-web-security 
+* Linux: google-chrome --disable-web-security --user-data-dir="/tmp/someFolderName" 
 
 cast-a-pod currently allows users to:
 1. do a general search of podcasts by term or genre
