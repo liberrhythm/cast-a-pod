@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { Form, FormGroup, FormControl, Button } from 'react-bootstrap'
+import { navigateTo } from "gatsby-link"
 
 const axios = require('axios');
 const baseUrl = "https://www.gpodder.net";
@@ -7,7 +8,7 @@ const baseUrl = "https://www.gpodder.net";
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = { username: '', password: '' };
+        this.state = { username: '', password: '', loggedIn: false };
         this.login = this.login.bind(this);
 
         this.handleChange = this.handleChange.bind(this);
@@ -16,7 +17,6 @@ class Login extends Component {
 
     handleChange(event) {
         this.setState({ [event.target.name]: event.target.value });
-        console.log(this.state);
     }
 
     handleSubmit(event) {
@@ -26,22 +26,8 @@ class Login extends Component {
 
     // login function does not pass OPTIONS and throws CORS errors
     login() {
-        axios.post(baseUrl + "/api/2/auth/" + this.state.username + "/login.json", {
-            /*
+        axios.post(baseUrl + "/api/2/auth/" + this.state.username + "/login.json", {}, {
             withCredentials: true,
-            auth: {
-                username: this.state.username,
-                password: this.state.password
-            },
-            headers: {
-                //"Accept" : application/json,
-                //'Content-Type': 'application/x-www-form-urlencoded',
-                "Access-Control-Allow-Headers" : "Content-Type, Authorization",
-                
-                "Access-Control-Allow-Origin": 'http://localhost:8000',
-                "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT"
-            },
-            */
             auth: {
                 username: this.state.username,
                 password: this.state.password
@@ -49,8 +35,17 @@ class Login extends Component {
         })
             .then((response) => {
                 console.log(response);
+                if (response.status == 200) {
+                    navigateTo({
+                        pathname: '/search',
+                        state: {
+                            username: this.state.username
+                        }
+                    });
+                }
             })
             .catch((error) => {
+                alert("Wrong credentials. Please try again.")
                 console.log(error);
             });
     }

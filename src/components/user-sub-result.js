@@ -5,14 +5,16 @@ import { Button, Modal } from 'react-bootstrap'
 class UserSubResult extends Component {
     constructor(props) {
         super(props);
+
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
+
         this.state = {
             show: false,
             description: this.props.result.description,
-            title: this.props.result[0].podcast,
-            ep1: this.props.result[1],
-            ep2: this.props.result[2],
+            title: this.props.result.podcast,
+            ep1: this.props.result.ep1,
+            ep2: this.props.result.ep2,
             diff: this.props.diff,
             number: this.props.number + 1
         };
@@ -40,14 +42,14 @@ class UserSubResult extends Component {
                     </Modal.Header>
                     <Modal.Body>
                         <div className={styles.ep}>
-                            <h4>{this.state.ep1.title}</h4>
-                            <h5>{this.state.ep1.pubDate}</h5>
-                            <a href={this.state.ep1.link}>episode link</a>
+                            <h4>{this.state.ep1.title[0]}</h4>
+                            <h5>{this.state.ep1.pubDate[0]}</h5>
+                            <a href={this.state.ep1.enclosure[0].$.url}>episode media link</a>
                         </div>
                         <div className={styles.ep}>
-                            <h4>{this.state.ep2.title}</h4>
-                            <h5>{this.state.ep2.pubDate}</h5>
-                            <a href={this.state.ep2.link}>episode link</a>
+                            <h4>{this.state.ep2.title[0]}</h4>
+                            <h5>{this.state.ep2.pubDate[0]}</h5>
+                            <a href={this.state.ep2.enclosure[0].$.url}>episode media link</a>
                         </div>
                     </Modal.Body>
                 </Modal>

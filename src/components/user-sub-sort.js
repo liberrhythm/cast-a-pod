@@ -5,28 +5,28 @@ const axios = require('axios');
 const baseUrl = "https://www.gpodder.net";
 var parseString = require('xml2js').parseString;
 var moment = require('moment');
+var rp = require('request-promise');
 
 // display list of ordered podcasts by episode gap
 function SortedList(props) {
     let results = props.results;
-    if (results.length == 13) {
-        let resultsList = results.map((item, index) =>
-            <UserSubResult key={index} number={index} diff={item.diff} result={item.data} />
-        );
+    console.log(results);
 
+    if (results.length == 18) {
+        let resultsList = results.map(function (item, index) {
+            return <UserSubResult key={index} number={index} diff={item.diff} result={item.data} />;
+        });
         return (
             <div style={{ height: '60vh', overflowY: 'auto' }}>
                 <ul>{resultsList}</ul>
             </div>
         );
     }
-    else {
-        return (
-            <div style={{ height: '60vh', overflowY: 'auto' }}>
-
-            </div>
-        );
-    }
+    return (
+        <div style={{ height: '60vh', overflowY: 'auto' }}>
+            loading...
+        </div>
+    );
 }
 
 class UserSort extends Component {
@@ -41,7 +41,7 @@ class UserSort extends Component {
         this.compare = this.compare.bind(this);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.search();
     }
 
@@ -61,38 +61,18 @@ class UserSort extends Component {
 
     // parse feed url XML file to get episode data
     getEpisodeData(url) {
-        axios.get(url)
+        let newUrl = "https" + url.substr(4, url.length);
+        rp(url)
             .then((response) => {
-                let data = response.request.responseXML.children[0].children[0].children;
-                let counter = 0;
-                let podcast = "";
-                //var arr = Array.prototype.slice.call(data);
-
-                for (let i = 0; i < data.length; i++) {
-                    if (data[i].nodeName == "title") {
-                        var xml = new XMLSerializer().serializeToString(data[i]);
-                        parseString(xml, (err, result) => {
-                            podcast = result.title;
-                            this.episodeData.push([{ podcast: podcast }]);
-                        });
-                    }
-                    else if (data[i].nodeName == "item" && counter == 1) {
-                        var xml = new XMLSerializer().serializeToString(data[i]);
-                        parseString(xml, (err, result) => {
-                            let item = result.item;
-                            this.episodeData[this.episodeData.length - 1].push({ title: item.title[0], pubDate: item.pubDate[0], link: item.link[0] })
-                        });
-                        break;
-                    }
-                    else if (data[i].nodeName == "item") {
-                        counter++;
-                        var xml = new XMLSerializer().serializeToString(data[i]);
-                        parseString(xml, (err, result) => {
-                            let item = result.item;
-                            this.episodeData[this.episodeData.length - 1].push({ title: item.title[0], pubDate: item.pubDate[0], link: item.link[0] })
-                        });
-                    }
-                }
+                parseString(response, (err, result) => {
+                    let data = result.rss.channel[0];
+                    this.episodeData.push({
+                        podcast: data.title[0],
+                        link: data.link[0],
+                        ep1: data.item[0],
+                        ep2: data.item[1]
+                    });
+                });
                 this.sortData();
             })
             .catch((error) => {
@@ -104,11 +84,9 @@ class UserSort extends Component {
     sortData() {
         let sortedData = [];
         for (let i = 0; i < this.episodeData.length; i++) {
-            if (this.episodeData[i].length == 3) {
-                let date1 = moment(this.episodeData[i][1].pubDate);
-                let date2 = moment(this.episodeData[i][2].pubDate);
-                sortedData.push({ diff: date1.diff(date2, 'days'), data: this.episodeData[i] });
-            }
+            let date1 = moment(this.episodeData[i].ep1.pubDate[0]);
+            let date2 = moment(this.episodeData[i].ep2.pubDate[0]);
+            sortedData.push({ diff: date1.diff(date2, 'days'), data: this.episodeData[i] });
         }
         sortedData.sort(this.compare);
         this.setState({ sortedData: sortedData });
