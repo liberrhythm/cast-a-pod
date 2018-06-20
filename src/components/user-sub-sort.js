@@ -12,7 +12,7 @@ function SortedList(props) {
     let results = props.results;
     console.log(results);
 
-    if (results.length == 13) {
+    if (results.length == 7) {
         let resultsList = results.map(function (item, index) {
             return <UserSubResult key={index} number={index} diff={item.diff} result={item.data} />;
         });
