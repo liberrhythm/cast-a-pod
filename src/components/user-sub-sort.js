@@ -61,7 +61,7 @@ class UserSort extends Component {
 
     // parse feed url XML file to get episode data
     getEpisodeData(url) {
-        let newUrl = "https" + url.substr(4, url.length);
+        // let newUrl = "https" + url.substr(4, url.length);
         rp(url)
             .then((response) => {
                 parseString(response, (err, result) => {

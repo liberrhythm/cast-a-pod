@@ -53,6 +53,12 @@ img {
     margin: 10px;
 }
 
+.ep {
+    border-bottom: solid thin;
+    margin: 10px;
+    padding: 10px;
+}
+
 @media (max-width: 700px) {
     .cardBody {
         flex-wrap: wrap;
