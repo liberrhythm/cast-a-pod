@@ -12,7 +12,7 @@ function SortedList(props) {
     let results = props.results;
     console.log(results);
 
-    if (results.length == 18) {
+    if (results.length == 13) {
         let resultsList = results.map(function (item, index) {
             return <UserSubResult key={index} number={index} diff={item.diff} result={item.data} />;
         });
@@ -61,8 +61,8 @@ class UserSort extends Component {
 
     // parse feed url XML file to get episode data
     getEpisodeData(url) {
-        // let newUrl = "https" + url.substr(4, url.length);
-        rp(url)
+        let newUrl = "https" + url.substr(4, url.length);
+        rp(newUrl)
             .then((response) => {
                 parseString(response, (err, result) => {
                     let data = result.rss.channel[0];
