@@ -15,7 +15,7 @@
     "gh-pages": "^1.2.0",
     "keyword-extractor": "0.0.15",
     "libxmljs": "^0.18.8",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "node-gyp": "^3.7.0",
     "punycode": "^1.4.1",
     "react": "^16.4.0",
